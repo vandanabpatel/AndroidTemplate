@@ -137,7 +137,7 @@ public class DataActivity extends BaseAppCompatActivity implements View.OnClickL
     }
 
     /**
-     * API call - data
+     * API call - get data
      */
     public void request_data() {
         if (!isNetworkAvailable(mActivity, true)) {

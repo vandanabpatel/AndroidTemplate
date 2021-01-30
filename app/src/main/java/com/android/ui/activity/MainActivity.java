@@ -13,14 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.android.R;
 import com.android.adapter.UserDataAdapter;
-import com.android.constant.ApiConstant;
 import com.android.databinding.ActivityMainBinding;
 import com.android.model.object.UserDataModel;
 import com.android.services.APIClient;
 import com.android.ui.BaseAppCompatActivity;
 import com.android.utils.Utility;
 import com.android.widget.ItemDecorationVertical;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -146,7 +144,7 @@ public class MainActivity extends BaseAppCompatActivity implements View.OnClickL
     }
 
     /**
-     * API call - data
+     * API call - get data
      */
     public void request_data() {
         if (!isNetworkAvailable(mActivity, true)) {

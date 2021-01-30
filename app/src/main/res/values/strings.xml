@@ -50,4 +50,5 @@
     <string name="error_enter_valid_email">Please enter valid email</string>
 
     <string name="search">Search</string>
+    <string name="type">Type</string>
 </resources>

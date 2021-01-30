@@ -12,15 +12,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.android.R;
-import com.android.adapter.UserDataAdapter;
-import com.android.constant.ApiConstant;
+import com.android.adapter.DataAdapter;
 import com.android.databinding.ActivityMainBinding;
 import com.android.model.object.UserDataModel;
 import com.android.services.APIClient;
 import com.android.ui.BaseAppCompatActivity;
 import com.android.utils.Utility;
 import com.android.widget.ItemDecorationVertical;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -28,15 +26,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends BaseAppCompatActivity implements View.OnClickListener,
+public class DataActivity extends BaseAppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener,
-        UserDataAdapter.OnUserDataClickListener {
+        DataAdapter.OnUserDataClickListener {
     private final String TAG = getClass().getSimpleName();
-    private Activity mActivity = MainActivity.this;
+    private Activity mActivity = DataActivity.this;
     private ActivityMainBinding layoutBinding;
 
-    private UserDataAdapter.OnUserDataClickListener onUserDataClickListener;
-    private UserDataAdapter adapter_data;
+    private DataAdapter.OnUserDataClickListener onUserDataClickListener;
+    private DataAdapter adapter_data;
     private ArrayList<UserDataModel> list_data;
 
     private boolean isKeyboardTouch = false;
@@ -76,13 +74,6 @@ public class MainActivity extends BaseAppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         Utility.hideSoftKeyboard(mActivity);
 
-        switch (v.getId()) {
-            /*case R.id.btn_login:
-                if (isValidate()) {
-                    request_login();
-                }
-                break;*/
-        }
     }
 
     @Override
@@ -128,7 +119,7 @@ public class MainActivity extends BaseAppCompatActivity implements View.OnClickL
             layoutBinding.llNoData.setVisibility(View.GONE);
 
             if (adapter_data == null) {
-                adapter_data = new UserDataAdapter(mActivity, onUserDataClickListener);
+                adapter_data = new DataAdapter(mActivity, onUserDataClickListener);
                 adapter_data.setOnItemClickListener(this);
             }
             adapter_data.doRefresh(list_data);
@@ -159,7 +150,6 @@ public class MainActivity extends BaseAppCompatActivity implements View.OnClickL
         call.enqueue(new Callback<ArrayList<UserDataModel>>() {
             @Override
             public void onResponse(Call<ArrayList<UserDataModel>> call, Response<ArrayList<UserDataModel>> json) {
-                hideProgress();
                 hideProgress();
                 try {
                     if (json.isSuccessful()) {

@@ -40,6 +40,8 @@ android {
 
             buildConfigField 'String', 'SERVER', '"https://api.github.com//"'
 
+//            https://www.journaldev.com/20292/android-mvvm-design-pattern
+
             buildConfigField 'boolean', 'IS_DEBUG', "true"
         }
 

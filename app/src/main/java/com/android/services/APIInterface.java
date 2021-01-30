@@ -1,8 +1,10 @@
 package com.android.services;
 
+import com.android.model.object.UserDataModel;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
@@ -64,4 +66,6 @@ public interface APIInterface {
                             @PartMap Map<String, RequestBody> params,
                             @Part MultipartBody.Part[] file);
 
+    @GET
+    Call<ArrayList<UserDataModel>> getData(@Url String url);
 }

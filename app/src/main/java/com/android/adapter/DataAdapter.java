@@ -11,13 +11,14 @@ import android.widget.Filterable;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.BR;
 import com.android.R;
-import com.android.databinding.ListUserDataBinding;
+import com.android.databinding.ListDataBinding;
 import com.android.model.object.UserDataModel;
 
 import java.util.ArrayList;
 
-public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHolder> implements Filterable {
+public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> implements Filterable {
     private final String TAG = getClass().getSimpleName();
     private Activity mActivity;
 
@@ -26,7 +27,7 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
     private ArrayList<UserDataModel> list_data;
     private ArrayList<UserDataModel> list_filter;
 
-    public UserDataAdapter(Activity mActivity, OnUserDataClickListener listener) {
+    public DataAdapter(Activity mActivity, OnUserDataClickListener listener) {
         this.mActivity = mActivity;
         this.listener = listener;
     }
@@ -48,7 +49,7 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ListUserDataBinding layoutBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_user_data, parent, false);
+        ListDataBinding layoutBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_data, parent, false);
         ViewHolder viewHolder = new ViewHolder(layoutBinding, this);
         return viewHolder;
     }
@@ -103,10 +104,10 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final ListUserDataBinding layoutBinding;
-        private UserDataAdapter mAdapter;
+        private final ListDataBinding layoutBinding;
+        private DataAdapter mAdapter;
 
-        public ViewHolder(ListUserDataBinding layoutBinding, final UserDataAdapter mAdapter) {
+        public ViewHolder(ListDataBinding layoutBinding, final DataAdapter mAdapter) {
             super(layoutBinding.getRoot());
             this.layoutBinding = layoutBinding;
             this.mAdapter = mAdapter;
@@ -119,14 +120,8 @@ public class UserDataAdapter extends RecyclerView.Adapter<UserDataAdapter.ViewHo
         }
 
         public void setData(final UserDataModel object) throws Exception {
-            layoutBinding.tvName.setText(object.getLogin());
-
-            layoutBinding.llRoot.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onCallClickListener(object);
-                }
-            });
+            layoutBinding.setVariable(BR.model, object);
+            layoutBinding.executePendingBindings();
         }
     }
 }

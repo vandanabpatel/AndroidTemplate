@@ -1,0 +1,53 @@
+<resources>
+    <string name="count_app">Welcome to %s</string>
+
+    <!-- date & time -->
+    <string name="diff_year">year</string>
+    <string name="diff_years">years</string>
+    <string name="diff_month">month</string>
+    <string name="diff_months">months</string>
+    <string name="diff_week">week</string>
+    <string name="diff_weeks">weeks</string>
+    <string name="diff_day">day</string>
+    <string name="diff_days">days</string>
+    <string name="diff_hour">hour</string>
+    <string name="diff_hours">hours</string>
+    <string name="diff_minute">minute</string>
+    <string name="diff_minutes">minutes</string>
+    <string name="diff_second">second</string>
+    <string name="diff_seconds">seconds</string>
+    <string name="ago">%1$s ago</string>
+
+    <!-- custom messages -->
+    <string name="go_to_setting">Go To Settings</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="retry">Re-try</string>
+    <string name="deny">Deny</string>
+    <string name="action">Action</string>
+    <string name="submit">Submit</string>
+    <string name="update">Update</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
+    <string name="standard_error_0">It seems like there is an error. Please go back and try again.</string>
+    <string name="msg_setting_location_permission">Without location permission you can not access. Go to settings, to enable location permission</string>
+    <string name="msg_setting_camera_storage_permission">Without camera, storage permission you can not access. Go to settings, to enable camera, storage permission</string>
+    <string name="msg_confirm_logout">Are you sure you want to logout?</string>
+    <string name="msg_confirm_exit">Are you sure you want to close the app?</string>
+    <string name="msg_confirm_delete">Are you sure you want delete?</string>
+    <string name="msg_confirm_verify_timetable">Are you sure you want to verify syllabus?</string>
+    <string name="msg_confirm_reject_timetable">Are you sure you want to reject syllabus?</string>
+    <string name="msg_no_data_found">No data found</string>
+    <string name="msg_present_today">Yes, I am Present today.</string>
+
+    <string name="error_no_internet">No Internet. Please check your network status and try again</string>
+    <string name="error_enter_valid_phone_number">Please enter valid phone number</string>
+    <string name="error_enter_valid_digit_phone">Phone number should not be start with 1</string>
+    <string name="error_enter_email">Please enter email</string>
+    <string name="error_enter_valid_email">Please enter valid email</string>
+
+    <string name="search">Search</string>
+</resources>

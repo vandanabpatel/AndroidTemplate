@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="shadow">@dimen/_2sdp</dimen>
+    <dimen name="corner">@dimen/_2sdp</dimen>
+    <dimen name="list_padding">@dimen/_8sdp</dimen>
+    <dimen name="divider">0.5dp</dimen>
+    <dimen name="tab_height">@dimen/_35sdp</dimen>
+    <dimen name="indicator_height">@dimen/_2sdp</dimen>
+
+    <dimen name="iv_icon">@dimen/_20sdp</dimen>
+    <dimen name="drawable_icon">@dimen/_15sdp</dimen>
+
+    <dimen name="toolbar_height">@dimen/_50sdp</dimen>
+    <dimen name="toolbar_text">@dimen/_16ssp</dimen>
+
+    <dimen name="et_text">@dimen/_13ssp</dimen>
+    <dimen name="tip_text">@dimen/_12ssp</dimen>
+
+    <dimen name="btn_height">@dimen/_35sdp</dimen>
+    <dimen name="btn_text">@dimen/_13ssp</dimen>
+</resources>

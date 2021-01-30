@@ -29,12 +29,12 @@ public class APIClient {
 
     public static final String RQ_DATA = "users/octocat/followers";
 
-    public static APIInterface appInterface(boolean isMultipart) {
-        OkHttpClient.Builder httpClient = getClientBuilder(isMultipart);
+    public static APIInterface appInterface() {
+        OkHttpClient.Builder httpClient = getClientBuilder();
         return getClient(httpClient, BuildConfig.SERVER).create(APIInterface.class);
     }
 
-    public static OkHttpClient.Builder getClientBuilder(boolean isMultipart) {
+    public static OkHttpClient.Builder getClientBuilder() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.connectTimeout(1, TimeUnit.MINUTES);
         httpClient.readTimeout(3, TimeUnit.MINUTES);
@@ -45,9 +45,9 @@ public class APIClient {
                 Request original = chain.request();
                 Request.Builder request = original.newBuilder();
 
-                if (isMultipart) {
+                /*if (isMultipart) {
                     request.addHeader(ApiConstant.HEADER_CONTENT_TYPE, ApiConstant.CONTENT_TYPE_MULTIPART_FORM);
-                }
+                }*/
                 if (!TextUtils.isEmpty(PreferenceUtils.getInstance().getAuthToken())) {
                     request.addHeader(ApiConstant.HEADER_AUTH_TOKEN, PreferenceUtils.getInstance().getAuthToken());
                 }

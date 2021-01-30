@@ -145,7 +145,7 @@ public class DataActivity extends BaseAppCompatActivity implements View.OnClickL
         }
 
         showProgress(mActivity);
-        Call call = APIClient.appInterface(false).getData(
+        Call call = APIClient.appInterface().getData(
                 APIClient.RQ_DATA);
         call.enqueue(new Callback<ArrayList<UserDataModel>>() {
             @Override

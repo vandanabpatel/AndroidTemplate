@@ -154,14 +154,20 @@ public class MainActivity extends BaseAppCompatActivity implements View.OnClickL
         }
 
         showProgress(mActivity);
-        Call call = APIClient.appInterface(false).getData(
+        Call call = APIClient.appInterface().getData(
                 APIClient.RQ_DATA);
         call.enqueue(new Callback<ArrayList<UserDataModel>>() {
             @Override
             public void onResponse(Call<ArrayList<UserDataModel>> call, Response<ArrayList<UserDataModel>> json) {
                 hideProgress();
-                hideProgress();
                 try {
+                    /*UserDataResponse response = (UserDataResponse) Utility.jsonToPojo(json.body().toString(), UserDataResponse.class);
+                    if (json.isSuccessful() && response.getCode() == ApiConstant.STATUS_CODE_SUCCESS) {
+                        list_feedback = response.getPayload();
+                    } else {
+                        showSnackbarError(mActivity, response.getMessage());
+                    }*/
+
                     if (json.isSuccessful()) {
                         list_data = json.body();
                     } else {

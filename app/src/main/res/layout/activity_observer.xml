@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
         <variable
-            name="data"
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="field"
             type="com.android.model.object.DataViewModel" />
+
+        <variable
+            name="view"
+            type="com.android.model.object.ViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -41,14 +47,15 @@
                     style="@style/Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{listener::onClick}"
                     android:text="@string/update" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_username"
+                    android:id="@+id/tv_firstName"
                     style="@style/TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{data.username}" />
+                    android:text="@{field.firstName}" />
             </LinearLayout>
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

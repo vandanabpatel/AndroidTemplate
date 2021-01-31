@@ -8,15 +8,12 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableField;
 
 import com.android.R;
 import com.android.databinding.ActivityObserverBinding;
 import com.android.model.object.DataViewModel;
-import com.android.model.object.UserDataModel;
+import com.android.model.object.ViewModel;
 import com.android.ui.BaseAppCompatActivity;
-import com.android.utils.Debugger;
 import com.android.utils.Utility;
 
 public class ObserverActivity extends BaseAppCompatActivity implements View.OnClickListener {
@@ -24,12 +21,18 @@ public class ObserverActivity extends BaseAppCompatActivity implements View.OnCl
     private Activity mActivity = ObserverActivity.this;
     private ActivityObserverBinding layoutBinding;
 
+    private DataViewModel field = new DataViewModel();
+    private ViewModel object_view = new ViewModel();
+
     private boolean isKeyboardTouch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         layoutBinding = DataBindingUtil.setContentView(this, R.layout.activity_observer);
+        layoutBinding.setListener(this);
+        layoutBinding.setField(field);
+        layoutBinding.setView(object_view);
 
 //        layoutBinding.tvUsername.setText(DataViewModel.username.get());
 
@@ -63,7 +66,10 @@ public class ObserverActivity extends BaseAppCompatActivity implements View.OnCl
 
         switch (v.getId()) {
             case R.id.btn_update:
-                Debugger.logE(TAG, "value::" + DataViewModel.username);
+//                UserDataModel object_store = new UserDataModel();
+//                object_store.setDisplayName("vandana");
+//                field.store.add(object_store);
+                field.firstName.set("vandana");
                 break;
         }
     }
@@ -82,7 +88,7 @@ public class ObserverActivity extends BaseAppCompatActivity implements View.OnCl
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                DataViewModel.username.set(s.toString());
+                DataViewModel.firstName.set(s.toString());
             }
 
             @Override
